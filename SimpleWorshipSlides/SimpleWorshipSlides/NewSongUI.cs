@@ -12,12 +12,12 @@ namespace SimpleWorshipSlides
 {
     public partial class NewSongUI : Form
     {
-        private String songtitle;
-        private String songtexter;
-        private String songcomposer;
-        private String songtext;
+        public string songtitle;
+        private string songtexter;
+        private string songcomposer;
+        private string songtext;
 
-        public string Songtitle
+        public string MSongtitle
         {
             get
             {
@@ -30,7 +30,7 @@ namespace SimpleWorshipSlides
             }
         }
 
-        public string Songtexter
+        public string MSongtexter
         {
             get
             {
@@ -43,7 +43,7 @@ namespace SimpleWorshipSlides
             }
         }
 
-        public string Songcomposer
+        public string MSongcomposer
         {
             get
             {
@@ -56,7 +56,7 @@ namespace SimpleWorshipSlides
             }
         }
 
-        public string Songtext
+        public string MSongtext
         {
             get
             {
@@ -76,7 +76,10 @@ namespace SimpleWorshipSlides
 
         private void NewSongUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            MSongtitle = TBTitle.Text;
+            MSongtexter = TBTexter.Text;
+            MSongcomposer = TBMusic.Text;
+            MSongtext = TBSongText.Text;
         }
     }
 }

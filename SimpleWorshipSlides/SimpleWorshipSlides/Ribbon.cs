@@ -6,15 +6,17 @@ using Microsoft.Office.Tools.Ribbon;
 using System.Windows.Forms;
 using SimpleWorshipSlides;
 
-
 namespace SimpleWorshipSlides
 {
     public partial class Ribbon
     {
-        private String songtext;
-        private String songtitle;
+        private string songtext;
+        private string songtitle;
+        private string songcomposer;
+        private string songwriter;
+        
 
-        public String Songtext
+        public string Songtext
         {
             get { return songtext; }
             set { songtext = value; }
@@ -26,6 +28,32 @@ namespace SimpleWorshipSlides
             set { songtitle = value; }
         }
 
+        public string Songcomposer
+        {
+            get
+            {
+                return songcomposer;
+            }
+
+            set
+            {
+                songcomposer = value;
+            }
+        }
+
+        public string Songwriter
+        {
+            get
+            {
+                return songwriter;
+            }
+
+            set
+            {
+                songwriter = value;
+            }
+        }
+
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
 
@@ -33,8 +61,15 @@ namespace SimpleWorshipSlides
 
         private void BNewSong_Click(object sender, RibbonControlEventArgs e)
         {
+            DialogResult dr = new DialogResult();
             Form FNewSong = new NewSongUI();
-            FNewSong.Show();
+            dr = FNewSong.ShowDialog();
+
+            if(dr == DialogResult.OK)
+            {
+                this.Songtitle = FNewSong.MSongtitle;
+            }
+
         }
     }
 }
